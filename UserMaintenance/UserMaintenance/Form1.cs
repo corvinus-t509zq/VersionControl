@@ -18,14 +18,20 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
-            
+
             label2.Text = Resource2.FullName;
             button1.Text = Resource2.Add;
 
+            Listázás();
+            button2.Text = Resource2.Write;
+            button3.Text = Resource2.Delete;
+        }
+
+        private void Listázás()
+        {
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
             listBox1.DisplayMember = "FullName";
-            button2.Text = Resource2.Write;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +59,14 @@ namespace UserMaintenance
 
                 sw.Close();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            User Selected = (User)listBox1.SelectedItem;
+
+            users.Remove(Selected);
+            Listázás();
         }
     }
 }
