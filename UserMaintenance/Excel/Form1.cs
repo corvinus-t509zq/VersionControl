@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+using Excelusing = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 
 namespace Excel
@@ -16,6 +16,10 @@ namespace Excel
     {
         RealEstateEntities context = new RealEstateEntities();
         List<Flat> Flats;
+        Excelusing.Application xlApp;
+        Excelusing.Workbook xlWB;
+        Excelusing.Worksheet xlSheet;
+
         public Form1()
         {
             InitializeComponent();
