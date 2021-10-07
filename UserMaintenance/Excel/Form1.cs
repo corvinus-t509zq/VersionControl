@@ -25,6 +25,7 @@ namespace Excel
             InitializeComponent();
             LoadData();
             CreateExcel();
+          
         }
         void LoadData()
         {
@@ -92,7 +93,7 @@ namespace Excel
                 values[counter,5] = f.NumberOfRooms;
                 values[counter,6] = f.FloorArea;
                 values[counter,7] = f.Price;
-                values[counter, 8] = $" = {GetCell(counter,7)} / {GetCell(counter,6)} ";
+                values[counter, 8] = $"={GetCell(counter+2, 8)}/{GetCell(counter+2, 7)}*{1000000}";
                 counter++;
             }
             xlSheet.get_Range(
@@ -129,18 +130,25 @@ namespace Excel
             headerRange.BorderAround2(Excelusing.XlLineStyle.xlContinuous, Excelusing.XlBorderWeight.xlThick);
 
 
-            Excelusing.Range wholeTable = xlSheet.get_Range(GetCell(0,0),GetCell(Flats.Count,headers.Length));
+            Excelusing.Range wholeTable = xlSheet.get_Range(GetCell(1, 1), GetCell(Flats.Count+1, headers.Length));
             wholeTable.BorderAround2(Excelusing.XlLineStyle.xlContinuous, Excelusing.XlBorderWeight.xlThick);
 
-            Excelusing.Range  FirstCol = xlSheet.get_Range(GetCell(1,1),GetCell(Flats.Count,1));
+            Excelusing.Range FirstCol = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count+1, 1));
             FirstCol.Font.Bold = true;
             FirstCol.Interior.Color = Color.LightYellow;
 
 
-            Excelusing.Range LastCol = xlSheet.get_Range(GetCell(1,headers.Length), GetCell(Flats.Count,headers.Length));
+            Excelusing.Range LastCol = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(Flats.Count+1, headers.Length));
             LastCol.Interior.Color = Color.LightGreen;
+            
 
 
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 
