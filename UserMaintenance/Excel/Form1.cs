@@ -75,6 +75,7 @@ namespace Excel
                 xlSheet.Cells[1,i+1] = headers[i];
             }
             object[,] values = new object[Flats.Count, headers.Length];
+            
             int counter = 0;
             foreach (Flat f in Flats)
             {
@@ -99,6 +100,10 @@ namespace Excel
             xlSheet.get_Range(
                 GetCell(2, 1),
                 GetCell(1+values.GetLength(0),values.GetLength(1))).Value2 = values;
+            //MessageBox.Show(" values.getlength(0) - "+values.GetLength(0).ToString());
+            //MessageBox.Show(" values.getlength(1) - " + values.GetLength(1).ToString());
+
+
             FormatTable();
 
 
