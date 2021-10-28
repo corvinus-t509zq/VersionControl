@@ -42,6 +42,23 @@ namespace Web
         {
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(result);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                RateData rate = new RateData();
+                Rates.Add(rate);
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+                var childelement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childelement.GetAttribute("curr");
+
+                var unit =  decimal.Parse(childelement.GetAttribute("unit"));
+                var value = decimal.Parse(childelement.InnerText);
+                if (unit != 0)
+                {
+                    rate.Value = value / unit;
+                }
+
+
+            }
         }
 
 
