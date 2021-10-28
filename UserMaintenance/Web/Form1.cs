@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Web.Entities;
 using Web.MnbServiceReference;
 
@@ -19,10 +20,12 @@ namespace Web
         public Form1()
         {
             InitializeComponent();
-            SzolgaltatasHivas();
             dataGridView1.DataSource = Rates;
+            string eredmeny =  SzolgaltatasHivas();
+            XML(eredmeny);
         }
-        void SzolgaltatasHivas() {
+        public string SzolgaltatasHivas() 
+        {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
             GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody()
             {
@@ -32,7 +35,15 @@ namespace Web
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
+            return result;
 
         }
+        void XML(string result) 
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(result);
+        }
+
+
     }
 }
