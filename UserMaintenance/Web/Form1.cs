@@ -17,10 +17,14 @@ namespace Web
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>(); 
         
         public Form1()
         {
             InitializeComponent();
+            //MNBArfolyamServiceSoapClient mnbs = new MNBArfolyamServiceSoapClient();
+            //mnbs.GetCurrencies;
+            
             RefreshData();
         }
 
@@ -28,6 +32,7 @@ namespace Web
         {
             Rates.Clear();
             dataGridView1.DataSource = Rates;
+            //comboBox1.DataSource = Currencies;
             comboBox1.Text = "EUR";
             string eredmeny = SzolgaltatasHivas();
             XML(eredmeny);
@@ -38,14 +43,15 @@ namespace Web
         public string SzolgaltatasHivas() 
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+
             GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody()
             {
-                //currencyNames = "EUR",
+                
                 currencyNames = comboBox1.SelectedItem.ToString(),
-                //startDate = "2020-01-01",
+                
                 startDate = dateTimePicker1.Value.ToString(),
                 endDate = dateTimePicker2.Value.ToString()
-                //endDate = "2020-06-30"
+                
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
@@ -61,7 +67,10 @@ namespace Web
                 RateData rate = new RateData();
                 Rates.Add(rate);
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
+                
                 var childelement = (XmlElement)element.ChildNodes[0];
+                if (childelement == null)
+                    continue;
                 rate.Currency = childelement.GetAttribute("curr");
 
                 var unit =  decimal.Parse(childelement.GetAttribute("unit"));
