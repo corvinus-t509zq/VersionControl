@@ -78,5 +78,16 @@ namespace Mikulas
             //ball
             Factory = new BallFactory();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //színválasztás
+            var button = (Button)sender;
+            ColorDialog cd = new ColorDialog();
+            cd.Color = button.BackColor;
+            if (cd.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = cd.Color;
+
+        }
     }
 }

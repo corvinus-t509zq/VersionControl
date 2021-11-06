@@ -36,6 +36,7 @@ namespace Mikulas
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.labelNext = new System.Windows.Forms.Label();
+            this.buttonColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -86,11 +87,22 @@ namespace Mikulas
             this.labelNext.TabIndex = 2;
             this.labelNext.Text = "Coming next:";
             // 
+            // buttonColor
+            // 
+            this.buttonColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonColor.Location = new System.Drawing.Point(509, 44);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(122, 40);
+            this.buttonColor.TabIndex = 0;
+            this.buttonColor.UseVisualStyleBackColor = false;
+            this.buttonColor.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 450);
+            this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.labelNext);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -110,6 +122,7 @@ namespace Mikulas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labelNext;
+        private System.Windows.Forms.Button buttonColor;
     }
 }
 
