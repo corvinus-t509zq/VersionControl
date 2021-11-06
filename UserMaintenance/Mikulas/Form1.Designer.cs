@@ -90,9 +90,9 @@ namespace Mikulas
             // buttonColor
             // 
             this.buttonColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.buttonColor.Location = new System.Drawing.Point(509, 44);
+            this.buttonColor.Location = new System.Drawing.Point(155, 73);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(122, 40);
+            this.buttonColor.Size = new System.Drawing.Size(81, 40);
             this.buttonColor.TabIndex = 0;
             this.buttonColor.UseVisualStyleBackColor = false;
             this.buttonColor.Click += new System.EventHandler(this.button3_Click);

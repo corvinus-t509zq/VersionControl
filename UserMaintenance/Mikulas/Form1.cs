@@ -76,7 +76,11 @@ namespace Mikulas
         private void button2_Click(object sender, EventArgs e)
         {
             //ball
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = buttonColor.BackColor
+            };
+
         }
 
         private void button3_Click(object sender, EventArgs e)
