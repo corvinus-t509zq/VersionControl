@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaR", "VaR\VaR.csproj", "{5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{70D2C600-D5A5-40CA-8E04-75DB1F45FB4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikulas", "Mikulas\Mikulas.csproj", "{17A98305-24C5-4188-AA6C-EE9B2F302973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{70D2C600-D5A5-40CA-8E04-75DB1F45FB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D2C600-D5A5-40CA-8E04-75DB1F45FB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D2C600-D5A5-40CA-8E04-75DB1F45FB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
