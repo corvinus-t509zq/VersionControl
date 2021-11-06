@@ -93,5 +93,18 @@ namespace Mikulas
             button.BackColor = cd.Color;
 
         }
+
+        private void buttonPresent_Click(object sender, EventArgs e)
+        {
+            //Present
+            Factory = new PresentFactory
+            {
+                PresentColorBox = buttonPresentColor1.BackColor,
+                PresentColorRibbon = buttonPresentColor2.BackColor
+
+            };
+        }
+
+      
     }
 }

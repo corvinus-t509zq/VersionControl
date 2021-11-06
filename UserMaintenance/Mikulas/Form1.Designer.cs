@@ -37,11 +37,14 @@ namespace Mikulas
             this.button2 = new System.Windows.Forms.Button();
             this.labelNext = new System.Windows.Forms.Label();
             this.buttonColor = new System.Windows.Forms.Button();
+            this.buttonPresent = new System.Windows.Forms.Button();
+            this.buttonPresentColor1 = new System.Windows.Forms.Button();
+            this.buttonPresentColor2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
-            this.mainPanel.Location = new System.Drawing.Point(3, 219);
+            this.mainPanel.Location = new System.Drawing.Point(2, 279);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(985, 172);
             this.mainPanel.TabIndex = 0;
@@ -81,7 +84,7 @@ namespace Mikulas
             // labelNext
             // 
             this.labelNext.AutoSize = true;
-            this.labelNext.Location = new System.Drawing.Point(347, 33);
+            this.labelNext.Location = new System.Drawing.Point(615, 9);
             this.labelNext.Name = "labelNext";
             this.labelNext.Size = new System.Drawing.Size(101, 20);
             this.labelNext.TabIndex = 2;
@@ -97,11 +100,44 @@ namespace Mikulas
             this.buttonColor.UseVisualStyleBackColor = false;
             this.buttonColor.Click += new System.EventHandler(this.button3_Click);
             // 
+            // buttonPresent
+            // 
+            this.buttonPresent.Location = new System.Drawing.Point(280, 33);
+            this.buttonPresent.Name = "buttonPresent";
+            this.buttonPresent.Size = new System.Drawing.Size(110, 34);
+            this.buttonPresent.TabIndex = 3;
+            this.buttonPresent.Text = "PRESENT";
+            this.buttonPresent.UseVisualStyleBackColor = true;
+            this.buttonPresent.Click += new System.EventHandler(this.buttonPresent_Click);
+            // 
+            // buttonPresentColor1
+            // 
+            this.buttonPresentColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttonPresentColor1.Location = new System.Drawing.Point(280, 73);
+            this.buttonPresentColor1.Name = "buttonPresentColor1";
+            this.buttonPresentColor1.Size = new System.Drawing.Size(110, 40);
+            this.buttonPresentColor1.TabIndex = 4;
+            this.buttonPresentColor1.UseVisualStyleBackColor = false;
+            this.buttonPresentColor1.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonPresentColor2
+            // 
+            this.buttonPresentColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonPresentColor2.Location = new System.Drawing.Point(280, 119);
+            this.buttonPresentColor2.Name = "buttonPresentColor2";
+            this.buttonPresentColor2.Size = new System.Drawing.Size(110, 40);
+            this.buttonPresentColor2.TabIndex = 5;
+            this.buttonPresentColor2.UseVisualStyleBackColor = false;
+            this.buttonPresentColor2.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 450);
+            this.Controls.Add(this.buttonPresentColor2);
+            this.Controls.Add(this.buttonPresentColor1);
+            this.Controls.Add(this.buttonPresent);
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.labelNext);
             this.Controls.Add(this.button1);
@@ -123,6 +159,9 @@ namespace Mikulas
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labelNext;
         private System.Windows.Forms.Button buttonColor;
+        private System.Windows.Forms.Button buttonPresent;
+        private System.Windows.Forms.Button buttonPresentColor1;
+        private System.Windows.Forms.Button buttonPresentColor2;
     }
 }
 
