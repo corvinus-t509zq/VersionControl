@@ -50,16 +50,21 @@ namespace UnitTestExample.Controllers
 
         public bool ValidatePassword(string password)
         {
-            Regex r = new Regex(@"[8,]([A-Za-z0-9])");
-            Regex kistbetu = new Regex(@"[a-z]");
-            Regex nagytbetu = new Regex(@"[A-Z]");
-            Regex szam = new Regex(@"[0-9]");
+            //Regex r = new Regex(@"[8,]([A-Za-z0-9])");
+            //Regex kistbetu = new Regex(@"[a-z]");
+            //Regex nagytbetu = new Regex(@"[A-Z]");
+            //Regex szam = new Regex(@"[0-9]");
 
-            if (!kistbetu.IsMatch(password)) return false;
-            else if  (!nagytbetu.IsMatch(password)) return false;
-            else if  (!szam.IsMatch(password)) return false;
-            else return true;
+            //if (!kistbetu.IsMatch(password)) return false;
+            //else if  (!nagytbetu.IsMatch(password)) return false;
+            //else if  (!szam.IsMatch(password)) return false;
+            //else return true;
 
+            if (!Regex.IsMatch(password, @"^[a-zA-Z0-9]{8,}$")) return false;
+            else if (Regex.IsMatch(password, @"[a-z].")) return false;
+            else if (Regex.IsMatch(password, @"[A-Z].")) return false;
+            else if (Regex.IsMatch(password, @"[0-9].")) return false;
+            return true;
         }
     }
 }
