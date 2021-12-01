@@ -24,7 +24,54 @@ namespace szimulacio
             Population = GetPopulation( @"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProb(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProb(@"C:\Temp\halál.csv");
+
+            for (int Year = 2005; Year < 2024; Year++)
+            {
+                for (int i = 0; i < Population.Count; i++)
+                {
+                    SimStep(Year, Population[i]);
+                }
+                    int NbrOfMales = (from x in Population
+                                      where x.Gender == Gender.Male && x.IsAlive
+                                      select x).Count();
+                    int NbrOfFemales = (from y in Population
+                                        where y.Gender == Gender.Femala && y.IsAlive
+                                        select y).Count();
+
+                    Console.WriteLine(
+                        string.Format("Év: {0} Fiúk:{1} Lányok:{2}",Year,NbrOfMales,NbrOfFemales));
+                
+            }
             
+        }
+
+        private void SimStep(int  year, Person person) 
+        {
+            if (!person.IsAlive) return;
+
+            byte age = (byte)(year - person.BirthYear);
+
+            double pDeath = (from x in DeathProbabilities
+                             where x.Gender == person.Gender && x.Age == age
+                             select x.Probability).FirstOrDefault();
+            if (rnd.NextDouble() <= pDeath) person.IsAlive = false;
+
+            if (person.Gender == Gender.Femala && person.IsAlive)
+            {
+                double pBirth = (from y in BirthProbabilities
+                                 where y.Age == age
+                                 select y.Probability).FirstOrDefault();
+
+                if (rnd.NextDouble() <= pBirth) 
+                {
+                    Person újszülött = new Person();
+                    újszülött.BirthYear = year;
+                    újszülött.NbrOfChildren = 0;
+                    újszülött.Gender = (Gender)(rnd.Next(1,3));
+                    Population.Add(újszülött);
+                }
+
+            }
         }
         public List<Person> GetPopulation(string csvpath)
         {
