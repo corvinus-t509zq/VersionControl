@@ -21,30 +21,34 @@ namespace szimulacio
         public Form1()
         {
             InitializeComponent();
-            Population = GetPopulation( @"C:\Temp\nép.csv");
+        
+
+          
+            
+        }
+        public void Simulation()
+        {
+            Population = GetPopulation(textBox1.Text);
             BirthProbabilities = GetBirthProb(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProb(@"C:\Temp\halál.csv");
-
-            for (int Year = 2005; Year < 2024; Year++)
+            for (int Year = 2005; Year < numericUpDown1.Value; Year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
                     SimStep(Year, Population[i]);
                 }
-                    int NbrOfMales = (from x in Population
-                                      where x.Gender == Gender.Male && x.IsAlive
-                                      select x).Count();
-                    int NbrOfFemales = (from y in Population
-                                        where y.Gender == Gender.Femala && y.IsAlive
-                                        select y).Count();
+                int NbrOfMales = (from x in Population
+                                  where x.Gender == Gender.Male && x.IsAlive
+                                  select x).Count();
+                int NbrOfFemales = (from y in Population
+                                    where y.Gender == Gender.Femala && y.IsAlive
+                                    select y).Count();
 
-                    Console.WriteLine(
-                        string.Format("Év: {0} Fiúk:{1} Lányok:{2}",Year,NbrOfMales,NbrOfFemales));
-                
+                Console.WriteLine(
+                    string.Format("Év: {0} Fiúk:{1} Lányok:{2}", Year, NbrOfMales, NbrOfFemales));
+
             }
-            
         }
-
         private void SimStep(int  year, Person person) 
         {
             if (!person.IsAlive) return;
@@ -139,6 +143,18 @@ namespace szimulacio
             return death;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK) {
+                textBox1.Text = ofd.FileName;
+            }
+
+        }
     }
 }
