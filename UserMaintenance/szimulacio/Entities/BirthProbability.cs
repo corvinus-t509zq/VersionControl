@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace szimulacio.Entities
 {
-    class BirthProbability
+    public class BirthProbability
     {
         public int Age { get; set; }
         public int NbrOfChildren { get; set; }
