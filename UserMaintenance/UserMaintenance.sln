@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikulas", "Mikulas\Mikulas.csproj", "{17A98305-24C5-4188-AA6C-EE9B2F302973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "szimulacio", "szimulacio\szimulacio.csproj", "{A4FABFED-222C-493D-8B7C-FB49AB742C4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17A98305-24C5-4188-AA6C-EE9B2F302973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FABFED-222C-493D-8B7C-FB49AB742C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FABFED-222C-493D-8B7C-FB49AB742C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FABFED-222C-493D-8B7C-FB49AB742C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FABFED-222C-493D-8B7C-FB49AB742C4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
