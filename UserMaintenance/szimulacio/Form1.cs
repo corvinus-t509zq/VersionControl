@@ -17,6 +17,8 @@ namespace szimulacio
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<int> MalesList = new List<int>();
+        List<int> FemalesList = new List<int>();
         Random rnd = new Random(1234);
         public Form1()
         {
@@ -28,10 +30,12 @@ namespace szimulacio
         }
         public void Simulation()
         {
+            MalesList.Clear();
+            FemalesList.Clear();
             Population = GetPopulation(textBox1.Text);
             BirthProbabilities = GetBirthProb(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProb(@"C:\Temp\halál.csv");
-            for (int Year = 2005; Year < numericUpDown1.Value; Year++)
+            for (int Year = 2005; Year <= numericUpDown1.Value; Year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
@@ -43,10 +47,11 @@ namespace szimulacio
                 int NbrOfFemales = (from y in Population
                                     where y.Gender == Gender.Femala && y.IsAlive
                                     select y).Count();
-
-                Console.WriteLine(
-                    string.Format("Év: {0} Fiúk:{1} Lányok:{2}", Year, NbrOfMales, NbrOfFemales));
-
+                MalesList.Add(NbrOfMales);
+                FemalesList.Add(NbrOfFemales);
+                //  Console.WriteLine(
+                //       string.Format("Év: {0} Fiúk:{1} Lányok:{2}", Year, NbrOfMales, NbrOfFemales));
+                DisplayResult(Year, NbrOfMales, NbrOfFemales);
             }
         }
         private void SimStep(int  year, Person person) 
@@ -76,6 +81,10 @@ namespace szimulacio
                 }
 
             }
+        }
+        void DisplayResult(int év, int férfiszám,int nőszám)
+        {
+            richTextBox1.Text += $"A szimuláció éve {év} \n \t Fiúk: {férfiszám} \n \t Lányok: {nőszám} \n \n";
         }
         public List<Person> GetPopulation(string csvpath)
         {
