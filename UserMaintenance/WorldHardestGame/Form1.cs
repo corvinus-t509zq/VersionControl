@@ -20,10 +20,12 @@ namespace WorldHardestGame
         int nbrOfStepsIncrement = 10;
         int generation = 1;
         Brain winnerBrain = null;
+        
 
         public Form1()
         {
             InitializeComponent();
+            button1.Visible = false;
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
             gc.GameOver += Gc_GameOver;
@@ -69,8 +71,18 @@ namespace WorldHardestGame
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
                 gc.GameOver -= Gc_GameOver;
+                button1.Visible = true;
                 return;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gc.ResetCurrentLevel();
+            gc.AddPlayer(winnerBrain.Clone());
+            gc.AddPlayer();
+            ga.Focus();
+            gc.Start(true);
         }
     }
 }
